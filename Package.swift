@@ -22,24 +22,28 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-
 import PackageDescription
 
-let package = Package(
-    name: "SnapKit",
-    platforms: [
-        .iOS(.v12),
-        .macOS(.v10_13),
-        .tvOS(.v12)
-    ],
-    products: [
-        .library(name: "SnapKit", type: .dynamic, targets: ["SnapKit"]),
-    ],
-    targets: [
-        .target(name: "SnapKit", path: "Sources", resources: [.copy("PrivacyInfo.xcprivacy")]),
-        .testTarget(name: "SnapKitTests", dependencies: ["SnapKit"]),
-    ],
-    swiftLanguageVersions: [
-      .version("5.10")
-    ]
-)
+let package = Package(name: "SnapKit",
+                      platforms: [
+                        .iOS(.v12),
+                        .macOS(.v10_13),
+                        .tvOS(.v12)
+                      ],
+                      products: [
+                        .library(name: "SnapKit", type: .dynamic, targets: ["SnapKit"])
+                      ],
+                      targets: [
+                        .target(name: "SnapKit",
+                                path: "Sources",
+                                resources: [.copy("PrivacyInfo.xcprivacy")],
+                                cSettings: [
+                                  .unsafeFlags([
+                                    "-ObjC"
+                                  ])
+                                ]),
+                        .testTarget(name: "SnapKitTests", dependencies: ["SnapKit"])
+                      ],
+                      swiftLanguageVersions: [
+                        .version("5.10")
+                      ])
