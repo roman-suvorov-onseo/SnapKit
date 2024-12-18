@@ -33,8 +33,7 @@ let package = Package(
         .tvOS(.v12)
     ],
     products: [
-        .library(name: "SnapKit", targets: ["SnapKit"]),
-        .library(name: "SnapKit-Dynamic", type: .dynamic, targets: ["SnapKit"]),
+        .library(name: "SnapKit", type: .dynamic, targets: ["SnapKit"]),
     ],
     targets: [
         .target(name: "SnapKit", path: "Sources", resources: [.copy("PrivacyInfo.xcprivacy")]),
