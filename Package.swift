@@ -1,4 +1,4 @@
-// swift-tools-version:5.8
+// swift-tools-version:5.10
 //
 //  SnapKit
 //
@@ -40,6 +40,6 @@ let package = Package(
         .testTarget(name: "SnapKitTests", dependencies: ["SnapKit"]),
     ],
     swiftLanguageVersions: [
-        .v5
+      .version("5.10")
     ]
 )
